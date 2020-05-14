@@ -37,10 +37,19 @@ public class Reserva {
 		return TimeUnit.DAYS.convert(diff, TimeUnit.MILLISECONDS);//diff que estava em milissegundo
 		
 	}
-	public void updateDates(Date checkIn, Date checkOut) {
-		
+	public String updateDates(Date checkIn, Date checkOut) {
+		Date now = new Date();
+		if (checkIn.before(now) || checkOut.before(now)) {
+			return "Data deve ser futura";
+
+		}
+		if (!checkOut.after(checkIn)) {
+			return "Erro data checkout incorreta deve ser posterior à checkin";
+
+		}
 		this.checkIn = checkIn;
 		this.checkOut = checkOut;
+		return null;//nulo nao deu nenhum erro
 		
 	}
 	@Override 
