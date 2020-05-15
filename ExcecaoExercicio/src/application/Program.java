@@ -27,7 +27,7 @@ public class Program {
 			Account acc = new Account(number, holder, balance, limiteSaque);
 			
 			System.out.print("Enter amount for withdraw: ");
-			Double valorSaque = sc.nextDouble();
+			Double valorSaque = Double.parseDouble(sc.nextLine());
 			acc.withdraw(valorSaque);
 			System.out.print("New balance: "+ acc.getBalance());
 			

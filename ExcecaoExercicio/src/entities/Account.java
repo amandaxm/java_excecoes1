@@ -53,12 +53,12 @@ public class Account {
 
 	public void withdraw(Double amount) throws DomainException {
 		if ((amount > balance)) {
-			throw new DomainException("Erro, verifique o saldo");
+			throw new DomainException("saldo insuficiente");
 
 		}
 		if (amount > withdrawLimit) {
 
-			throw new DomainException("Erro, ultrapassa o limite do saldo");
+			throw new DomainException("ultrapassa o limite de saldo");
 
 		}
 		balance -= amount;
